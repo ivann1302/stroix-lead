@@ -1,10 +1,10 @@
-import { contactLinks } from '../data/home';
+import { basePath, contactLinks } from '../data/home';
 
 export default function SiteHeader() {
   return (
     <header className="site-header">
       <div className="site-header__inner">
-        <a className="brand" href="/" aria-label="На главную">
+        <a className="brand" href={basePath} aria-label="На главную">
           <span className="brand__mark">S</span>
           <span>Лиды для стяжки</span>
         </a>

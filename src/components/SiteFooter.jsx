@@ -1,4 +1,4 @@
-import { contactLinks } from '../data/home';
+import { basePath, contactLinks } from '../data/home';
 
 export default function SiteFooter() {
   const year = new Date().getFullYear();
@@ -6,7 +6,7 @@ export default function SiteFooter() {
   return (
     <footer className="site-footer">
       <div className="site-footer__bottom">
-        <a className="site-footer__brand" href="/" aria-label="На главную">
+        <a className="site-footer__brand" href={basePath} aria-label="На главную">
           <span>s</span>
           <b>Лиды для стяжки</b>
         </a>

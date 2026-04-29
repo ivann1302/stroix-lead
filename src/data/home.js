@@ -3,6 +3,14 @@ export const pageMeta = {
   description: 'Статический SEO-лендинг для привлечения бригад по стяжке пола: лиды, РСЯ, хостинг, уведомления и оплата за целевые заявки.',
 };
 
+const rawBasePath = import.meta.env.BASE_URL;
+
+export const basePath = rawBasePath.endsWith('/') ? rawBasePath : `${rawBasePath}/`;
+
+export function assetPath(path) {
+  return `${basePath}${path.replace(/^\/+/, '')}`;
+}
+
 export function getHomeSchema(url) {
   return {
     '@context': 'https://schema.org',
@@ -18,17 +26,17 @@ export const contactLinks = [
   {
     name: 'Telegram',
     href: 'https://t.me/ivann97n',
-    icon: '/icons/tg-icon.png',
+    icon: assetPath('/icons/tg-icon.png'),
   },
   {
     name: 'WhatsApp',
     href: 'https://wa.me/79998589878',
-    icon: '/icons/whatsappIcon.png',
+    icon: assetPath('/icons/whatsappIcon.png'),
   },
   {
     name: 'MAX',
     href: 'https://max.ru/u/f9LHodD0cOKGDMh3y5qgc1BcQuay-i3njPYApZ684FEYtya_zgYDNhtA0o4',
-    icon: '/icons/Max-icon.svg',
+    icon: assetPath('/icons/Max-icon.svg'),
   },
 ];
 
@@ -78,15 +86,15 @@ export const trustPoints = [
 export const siteExamples = [
   {
     title: 'Сайт строительной услуги',
-    image: '/images/sites/rosa-desktop.png',
+    image: assetPath('/images/sites/rosa-desktop.png'),
   },
   {
     title: 'Сайт по механизированной стяжке',
-    image: '/images/sites/screed.png',
+    image: assetPath('/images/sites/screed.png'),
   },
   {
     title: 'Сайт по малярным работам',
-    image: '/images/sites/airless.png',
+    image: assetPath('/images/sites/airless.png'),
   },
 ];
 

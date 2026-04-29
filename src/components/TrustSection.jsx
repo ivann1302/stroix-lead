@@ -1,4 +1,4 @@
-import { trustIntro, trustPoints } from '../data/home';
+import { assetPath, trustIntro, trustPoints } from '../data/home';
 
 export default function TrustSection() {
   return (
@@ -11,7 +11,7 @@ export default function TrustSection() {
       <div className="trust-layout">
         <div className="trust-person" data-reveal="panel" data-reveal-delay="1">
           <div className="trust-person__photo">
-            <img src="/images/ivan.png" alt="Иван, основатель сервиса лидов для стяжки" loading="lazy" />
+            <img src={assetPath('/images/ivan.png')} alt="Иван, основатель сервиса лидов для стяжки" loading="lazy" />
           </div>
           <div>
             <span className="trust-person__label">Иван, основатель сервиса</span>

@@ -1,0 +1,134 @@
+@use '../variables' as *;
+
+.work-section {
+  position: relative;
+  padding: 72px 0 84px;
+}
+
+.work-section::before {
+  position: absolute;
+  inset: 10% -36vw auto;
+  height: 320px;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 58% 42% at 48% 50%, rgba(255, 176, 0, 0.08), transparent 74%),
+    radial-gradient(ellipse 42% 34% at 70% 54%, rgba(255, 106, 0, 0.06), transparent 76%);
+  filter: blur(18px);
+  content: "";
+}
+
+.work-section__head {
+  position: relative;
+  z-index: 1;
+  max-width: 780px;
+  margin-bottom: 34px;
+}
+
+.work-section h2 {
+  margin-bottom: 0;
+  color: $color-white;
+  font-size: clamp(30px, 7vw, 54px);
+  line-height: 1.04;
+}
+
+.work-steps {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.work-step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr);
+  gap: 16px;
+  padding: 0 0 30px;
+}
+
+.work-step:not(:last-child)::before {
+  position: absolute;
+  top: 44px;
+  left: 21px;
+  width: 2px;
+  height: calc(100% - 44px);
+  background: linear-gradient($color-accent, rgba(255, 176, 0, 0.18));
+  content: "";
+}
+
+.work-step__num {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid rgba(255, 176, 0, 0.28);
+  border-radius: 50%;
+  background:
+    linear-gradient($color-graphite-950, $color-graphite-950) padding-box,
+    linear-gradient(135deg, $color-accent, $color-accent-hot) border-box;
+  color: $color-accent;
+  font-size: 13px;
+  font-weight: 950;
+}
+
+.work-step p {
+  margin: 0;
+  padding: 2px 0 0;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+@media (min-width: 900px) {
+  .work-section {
+    padding: 92px 0 112px;
+  }
+
+  .work-section__head {
+    margin-bottom: 48px;
+  }
+
+  .work-steps {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0;
+    width: min(1360px, calc(100vw - 48px));
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .work-step {
+    grid-template-columns: 1fr;
+    grid-template-rows: 62px 1fr;
+    align-items: start;
+    gap: 22px;
+    padding: 0 32px 0 0;
+  }
+
+  .work-step:not(:last-child)::before {
+    top: 31px;
+    left: 62px;
+    width: calc(100% - 62px);
+    height: 2px;
+    background: linear-gradient(90deg, $color-accent, rgba(255, 176, 0, 0.16));
+  }
+
+  .work-step__num {
+    width: 62px;
+    height: 62px;
+    font-size: 16px;
+  }
+
+  .work-step p {
+    width: 100%;
+    max-width: none;
+    padding-top: 0;
+    font-size: 15px;
+    font-weight: 750;
+  }
+}

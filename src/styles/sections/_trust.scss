@@ -1,0 +1,171 @@
+@use '../variables' as *;
+
+.trust-section {
+  position: relative;
+  padding: 72px 0 96px;
+}
+
+.trust-section::before {
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  width: min(760px, 132vw);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 46% 48%, rgba(255, 176, 0, 0.12), transparent 58%),
+    radial-gradient(circle at 60% 42%, rgba(255, 106, 0, 0.09), transparent 66%);
+  filter: blur(30px);
+  content: "";
+}
+
+.trust-section__head,
+.trust-layout {
+  position: relative;
+  z-index: 1;
+}
+
+.trust-section__head {
+  max-width: 860px;
+  margin-bottom: 34px;
+}
+
+.trust-section h2 {
+  margin-bottom: 0;
+  color: $color-white;
+  font-size: clamp(30px, 7vw, 54px);
+  line-height: 1.04;
+}
+
+.trust-layout {
+  display: grid;
+  gap: 18px;
+}
+
+.trust-person {
+  display: grid;
+  gap: 18px;
+  padding: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: $radius-md;
+  background:
+    linear-gradient(135deg, rgba(255, 176, 0, 0.105), rgba(255, 106, 0, 0.045)),
+    rgba(255, 255, 255, 0.04);
+}
+
+.trust-person__photo {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  padding: 3px;
+  background: linear-gradient(135deg, $color-accent, $color-accent-hot);
+  overflow: hidden;
+}
+
+.trust-person__photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  object-fit: cover;
+  object-position: 10%;
+}
+
+.trust-person__label {
+  display: inline-flex;
+  margin-bottom: 16px;
+  background: linear-gradient(90deg, $color-accent, #ffd36a, $color-accent-hot);
+  background-clip: text;
+  color: transparent;
+  font-size: 12px;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.trust-person p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.trust-person p + p {
+  margin-top: 14px;
+}
+
+.trust-commitments {
+  display: grid;
+  gap: 12px;
+}
+
+.trust-commitment {
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr);
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: $radius-md;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.trust-commitment > span {
+  display: grid;
+  width: 46px;
+  height: 46px;
+  place-items: center;
+  border-radius: 50%;
+  background:
+    linear-gradient($color-graphite-950, $color-graphite-950) padding-box,
+    linear-gradient(135deg, $color-accent, $color-accent-hot) border-box;
+  border: 1px solid transparent;
+  color: $color-accent;
+  font-size: 13px;
+  font-weight: 950;
+}
+
+.trust-commitment h3 {
+  margin-bottom: 8px;
+  color: $color-white;
+  font-size: 20px;
+}
+
+.trust-commitment p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 15px;
+  font-weight: 680;
+  line-height: 1.55;
+}
+
+@media (min-width: 900px) {
+  .trust-section {
+    padding: 96px 0 124px;
+  }
+
+  .trust-section__head {
+    margin-bottom: 44px;
+  }
+
+  .trust-layout {
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    align-items: stretch;
+    gap: 22px;
+  }
+
+  .trust-person {
+    align-content: start;
+    padding: 30px;
+  }
+
+  .trust-person__photo {
+    width: 82px;
+    height: 82px;
+  }
+
+  .trust-commitment {
+    padding: 22px;
+  }
+}

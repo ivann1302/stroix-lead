@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Stroix Leads</title>
+  <desc id="desc">Лиды для бригад по стяжке пола</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#10100f"/>
+      <stop offset="0.58" stop-color="#1f211d"/>
+      <stop offset="1" stop-color="#332315"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffb000"/>
+      <stop offset="1" stop-color="#ff6a00"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="34"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="980" cy="124" r="210" fill="#ffb000" opacity="0.16" filter="url(#soft)"/>
+  <circle cx="1030" cy="520" r="260" fill="#18a957" opacity="0.11" filter="url(#soft)"/>
+  <rect x="72" y="70" width="1056" height="490" rx="28" fill="#171716" opacity="0.92" stroke="#ffffff" stroke-opacity="0.14"/>
+  <path d="M780 132h252c13.255 0 24 10.745 24 24v252c0 13.255-10.745 24-24 24H780c-13.255 0-24-10.745-24-24V156c0-13.255 10.745-24 24-24Z" fill="#24241f" opacity="0.95"/>
+  <path d="M810 376h196M810 326h152M810 276h218M810 226h170" stroke="url(#accent)" stroke-width="18" stroke-linecap="round"/>
+  <path d="M756 464h300" stroke="#ffffff" stroke-opacity="0.18" stroke-width="2"/>
+  <text x="112" y="150" fill="#ffb000" font-family="DejaVu Sans, Arial, sans-serif" font-size="28" font-weight="800" letter-spacing="2">STROIX LEADS</text>
+  <text x="112" y="248" fill="#ffffff" font-family="DejaVu Sans, Arial, sans-serif" font-size="70" font-weight="900">Лиды для бригад</text>
+  <text x="112" y="330" fill="#ffffff" font-family="DejaVu Sans, Arial, sans-serif" font-size="70" font-weight="900">по стяжке пола</text>
+  <text x="112" y="408" fill="#e7e0d4" font-family="DejaVu Sans, Arial, sans-serif" font-size="34" font-weight="700">Сайт, реклама, аналитика и заявки</text>
+  <rect x="112" y="462" width="360" height="58" rx="12" fill="url(#accent)"/>
+  <text x="142" y="502" fill="#171511" font-family="DejaVu Sans, Arial, sans-serif" font-size="28" font-weight="900">от 50 заявок в месяц</text>
+</svg>

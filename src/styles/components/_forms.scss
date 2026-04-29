@@ -1,0 +1,40 @@
+@use '../variables' as *;
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0 15px;
+  border: 1px solid $color-line-light;
+  border-radius: $radius-sm;
+  background: $color-white;
+  color: $color-text;
+  outline: none;
+}
+
+input,
+select {
+  min-height: 56px;
+}
+
+textarea {
+  min-height: 112px;
+  padding-block: 14px;
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+  border-color: $color-accent-hot;
+  box-shadow: 0 0 0 4px rgba(255, 106, 0, 0.16);
+}
+
+select:focus {
+  border-color: $color-accent-hot;
+  box-shadow: 0 0 0 4px rgba(255, 106, 0, 0.16);
+}
+
+.hero-form {
+  display: grid;
+  gap: 10px;
+}

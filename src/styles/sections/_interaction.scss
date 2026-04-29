@@ -1,0 +1,193 @@
+@use '../variables' as *;
+
+.interaction-section {
+  position: relative;
+  padding: 72px 0 88px;
+}
+
+.interaction-section::before {
+  position: absolute;
+  inset: 18% -28vw auto;
+  height: 340px;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 54% 42% at 42% 48%, rgba(255, 176, 0, 0.11), transparent 72%),
+    radial-gradient(ellipse 42% 34% at 68% 50%, rgba(24, 169, 87, 0.08), transparent 74%);
+  filter: blur(22px);
+  content: "";
+}
+
+.interaction-section__head,
+.interaction-flow,
+.interaction-contact {
+  position: relative;
+  z-index: 1;
+}
+
+.interaction-section__head {
+  max-width: 900px;
+  margin-bottom: 34px;
+}
+
+.interaction-section h2 {
+  margin-bottom: 0;
+  color: $color-white;
+  font-size: clamp(30px, 7vw, 54px);
+  line-height: 1.04;
+}
+
+.interaction-flow {
+  display: grid;
+  gap: 14px;
+}
+
+.interaction-step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr);
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: $radius-md;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.025)),
+    rgba(255, 255, 255, 0.035);
+}
+
+.interaction-step__num {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid rgba(255, 176, 0, 0.3);
+  border-radius: 50%;
+  background:
+    linear-gradient($color-graphite-950, $color-graphite-950) padding-box,
+    linear-gradient(135deg, $color-accent, $color-accent-hot) border-box;
+  color: $color-accent;
+  font-size: 13px;
+  font-weight: 950;
+}
+
+.interaction-step h3 {
+  margin-bottom: 8px;
+  color: $color-white;
+  font-size: 21px;
+}
+
+.interaction-step p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 15px;
+  font-weight: 680;
+  line-height: 1.55;
+}
+
+.interaction-contact {
+  display: grid;
+  gap: 18px;
+  margin-top: 18px;
+  padding: 20px;
+  border: 1px solid rgba(255, 176, 0, 0.22);
+  border-radius: $radius-md;
+  background:
+    linear-gradient(135deg, rgba(255, 176, 0, 0.14), rgba(255, 106, 0, 0.06)),
+    rgba(255, 255, 255, 0.05);
+}
+
+.interaction-contact span {
+  display: inline-flex;
+  margin-bottom: 8px;
+  color: $color-white;
+  font-size: 22px;
+  font-weight: 950;
+}
+
+.interaction-contact p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.interaction-contact__actions {
+  display: grid;
+  gap: 10px;
+}
+
+.interaction-contact__actions .button--dark {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(24, 25, 28, 0.74);
+}
+
+@media (min-width: 900px) {
+  .interaction-section {
+    padding: 90px 0 112px;
+  }
+
+  .interaction-section__head {
+    margin-bottom: 44px;
+  }
+
+  .interaction-flow {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+  }
+
+  .interaction-step {
+    grid-template-columns: 1fr;
+    align-content: start;
+    min-height: 278px;
+    padding: 24px 22px;
+    border-radius: 0;
+  }
+
+  .interaction-step:first-child {
+    border-radius: $radius-md 0 0 $radius-md;
+  }
+
+  .interaction-step:last-child {
+    border-radius: 0 $radius-md $radius-md 0;
+  }
+
+  .interaction-step + .interaction-step {
+    border-left: 0;
+  }
+
+  .interaction-step:not(:last-child)::after {
+    position: absolute;
+    top: 36px;
+    right: -10px;
+    z-index: 2;
+    width: 20px;
+    height: 20px;
+    border-top: 1px solid rgba(255, 176, 0, 0.32);
+    border-right: 1px solid rgba(255, 176, 0, 0.32);
+    background: $color-graphite-900;
+    transform: rotate(45deg);
+    content: "";
+  }
+
+  .interaction-step__num {
+    width: 54px;
+    height: 54px;
+    margin-bottom: 18px;
+    font-size: 15px;
+  }
+
+  .interaction-step h3 {
+    font-size: 22px;
+  }
+
+  .interaction-contact {
+    grid-template-columns: minmax(0, 1fr) minmax(360px, 0.46fr);
+    align-items: center;
+    margin-top: 22px;
+    padding: 24px;
+  }
+
+  .interaction-contact__actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

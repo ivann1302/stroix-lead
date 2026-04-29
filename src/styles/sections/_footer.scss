@@ -1,0 +1,112 @@
+@use '../variables' as *;
+
+.site-footer {
+  position: relative;
+  padding: 28px 0 30px;
+}
+
+.site-footer::before {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 100vw;
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, transparent, rgba(255, 176, 0, 0.42), transparent);
+  content: "";
+}
+
+.site-footer__bottom {
+  display: grid;
+  gap: 18px;
+  align-items: center;
+  justify-items: center;
+  color: rgba(255, 255, 255, 0.66);
+  text-align: center;
+}
+
+.site-footer__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  color: $color-white;
+}
+
+.site-footer__brand span {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border-radius: $radius-sm;
+  background: linear-gradient(135deg, $color-accent, $color-accent-hot);
+  color: $color-graphite-950;
+  font-size: 15px;
+  font-weight: 950;
+}
+
+.site-footer__brand b {
+  font-size: 15px;
+  font-weight: 950;
+}
+
+.site-footer__info {
+  max-width: 520px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 14px;
+  font-weight: 720;
+  line-height: 1.5;
+}
+
+.site-footer__links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 850;
+}
+
+.site-footer__privacy {
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.site-footer__links a {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.site-footer__links a:hover {
+  color: $color-white;
+}
+
+.site-footer__copy {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.52);
+  font-size: 14px;
+  font-weight: 750;
+}
+
+@media (min-width: 900px) {
+  .site-footer {
+    padding: 32px 0 34px;
+  }
+
+  .site-footer__bottom {
+    grid-template-columns: minmax(180px, 0.8fr) minmax(0, 1.1fr) auto auto;
+    gap: 22px;
+    justify-items: stretch;
+    text-align: left;
+  }
+
+  .site-footer__links {
+    justify-content: flex-start;
+  }
+
+  .site-footer__copy {
+    text-align: right;
+  }
+}

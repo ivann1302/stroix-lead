@@ -1,0 +1,174 @@
+@use 'variables' as *;
+
+@mixin container {
+  width: min($container, calc(100% - 24px));
+  margin-inline: auto;
+}
+
+.hero,
+.work-section,
+.interaction-section,
+.system-section,
+.trust-section,
+.quiz-section,
+.site-footer,
+.section,
+.cta,
+.footer,
+.legal {
+  @include container;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  margin-inline: 0;
+  border-bottom: 1px solid $color-line-dark;
+  background: rgba(24, 25, 28, 0.88);
+  backdrop-filter: blur(16px);
+}
+
+.site-header__inner {
+  @include container;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 62px;
+  padding: 10px 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  color: $color-white;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.brand span:last-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.brand__mark {
+  display: grid;
+  flex: 0 0 auto;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border-radius: $radius-sm;
+  background: linear-gradient(135deg, $color-accent, $color-accent-hot);
+  color: $color-graphite-950;
+  font-size: 15px;
+  font-weight: 950;
+}
+
+.social-links {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+
+.social-links--header {
+  flex: 0 0 auto;
+}
+
+.social-link {
+  display: grid;
+  width: 52px;
+  height: 52px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: $radius-sm;
+  background: rgba(255, 255, 255, 0.07);
+  transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+}
+
+.social-link:hover {
+  border-color: rgba(255, 176, 0, 0.42);
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-1px);
+}
+
+.social-link img {
+  display: block;
+  width: 62%;
+  height: 62%;
+  object-fit: contain;
+}
+
+.section {
+  padding: 58px 0;
+}
+
+.section--light {
+  width: 100%;
+  max-width: none;
+  padding-inline: max(12px, calc((100vw - #{$container}) / 2));
+  background: $color-paper;
+  color: $color-text;
+}
+
+.section__head {
+  max-width: 720px;
+  margin-bottom: 24px;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: $color-accent;
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: space-between;
+  padding: 24px 0;
+  border-top: 1px solid $color-line-dark;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 14px;
+}
+
+@media (min-width: 900px) {
+  .hero,
+  .work-section,
+  .interaction-section,
+  .system-section,
+  .trust-section,
+  .quiz-section,
+  .site-footer,
+  .section,
+  .cta,
+  .footer,
+  .legal {
+    width: min($container, calc(100% - 48px));
+  }
+
+  .site-header__inner {
+    width: min($container, calc(100% - 48px));
+  }
+
+  .brand {
+    font-size: 15px;
+  }
+
+  .social-link {
+    width: 48px;
+    height: 48px;
+  }
+
+  .section {
+    padding: 78px 0;
+  }
+}

@@ -102,13 +102,37 @@
 }
 
 .trust-commitment {
+  position: relative;
   display: grid;
   grid-template-columns: 54px minmax(0, 1fr);
   gap: 14px;
+  overflow: hidden;
   padding: 18px;
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: $radius-md;
   background: rgba(255, 255, 255, 0.035);
+}
+
+.trust-commitment--accent {
+  border-color: rgba(255, 176, 0, 0.38);
+  background:
+    radial-gradient(circle at 88% 12%, rgba(255, 176, 0, 0.2), transparent 36%),
+    linear-gradient(135deg, rgba(255, 176, 0, 0.16), rgba(255, 106, 0, 0.06)),
+    rgba(255, 255, 255, 0.055);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 176, 0, 0.08),
+    0 24px 58px rgba(0, 0, 0, 0.2);
+}
+
+.trust-commitment--accent > span {
+  background: linear-gradient(135deg, $color-accent, $color-accent-hot);
+  color: $color-graphite-950;
+}
+
+.trust-commitment--accent h3 {
+  background: linear-gradient(90deg, $color-white, #ffd36a, $color-accent-hot);
+  background-clip: text;
+  color: transparent;
 }
 
 .trust-commitment > span {

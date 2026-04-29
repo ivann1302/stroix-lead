@@ -1,0 +1,196 @@
+@use '../variables' as *;
+
+.site-examples-section {
+  position: relative;
+  padding: 72px 0 84px;
+}
+
+.site-examples-section::before {
+  position: absolute;
+  inset: 12% -34vw auto;
+  height: 340px;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 52% 44% at 48% 50%, rgba(255, 176, 0, 0.11), transparent 72%),
+    radial-gradient(ellipse 42% 34% at 68% 48%, rgba(24, 169, 87, 0.08), transparent 76%);
+  filter: blur(20px);
+  content: "";
+}
+
+.site-examples-section__head,
+.site-examples-desktop,
+.site-examples-mobile {
+  position: relative;
+  z-index: 1;
+}
+
+.site-examples-section__head {
+  max-width: 860px;
+  margin-bottom: 30px;
+}
+
+.site-examples-section h2 {
+  max-width: 820px;
+  margin-bottom: 16px;
+  color: $color-white;
+  font-size: clamp(30px, 7vw, 54px);
+  line-height: 1.04;
+}
+
+.site-examples-section__accent {
+  background: linear-gradient(90deg, $color-accent, #ffd36a, $color-accent-hot);
+  background-clip: text;
+  color: transparent;
+}
+
+.site-examples-section__head p:not(.eyebrow) {
+  max-width: 720px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 16px;
+  font-weight: 720;
+  line-height: 1.58;
+}
+
+.site-example-card {
+  display: grid;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: $radius-md;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.025)),
+    $color-graphite-900;
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.28);
+}
+
+.site-example-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.site-examples-desktop {
+  display: none;
+}
+
+.site-examples-mobile {
+  width: 100vw;
+  margin-left: 50%;
+  overflow: hidden;
+  transform: translateX(-50%);
+}
+
+.site-examples-mobile__scroller {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  padding: 4px 18px 14px;
+  scroll-padding-inline: 18px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  touch-action: pan-x;
+  -webkit-overflow-scrolling: touch;
+}
+
+.site-examples-mobile__scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.site-examples-mobile .site-example-card {
+  flex: 0 0 min(430px, calc(100vw - 54px));
+  scroll-snap-align: center;
+}
+
+.site-examples-mobile__dots {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  padding-top: 2px;
+}
+
+.site-examples-mobile__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.24);
+  transition: width 180ms ease, background 180ms ease;
+}
+
+.site-examples-mobile__dot--active {
+  width: 22px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, $color-accent, $color-accent-hot);
+}
+
+@media (min-width: 700px) {
+  .site-examples-mobile {
+    display: none;
+  }
+
+  .site-examples-desktop {
+    display: grid;
+    min-height: clamp(230px, 27vw, 350px);
+    place-items: center;
+  }
+
+  .site-examples-desktop__stage {
+    position: relative;
+    width: min(100%, 1180px);
+    height: clamp(230px, 27vw, 350px);
+    overflow: visible;
+  }
+
+  .site-examples-desktop .site-example-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: clamp(210px, 28vw, 370px);
+    transform: translate(-50%, -50%);
+    transition:
+      transform 700ms ease,
+      opacity 700ms ease,
+      box-shadow 700ms ease;
+    will-change: transform;
+  }
+
+  .site-examples-desktop .site-example-card--left {
+    z-index: 1;
+    transform: translate(calc(-50% - clamp(226px, 32vw, 400px)), -50%) scale(0.94);
+    opacity: 0.9;
+  }
+
+  .site-examples-desktop .site-example-card--center {
+    z-index: 2;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    box-shadow: 0 28px 72px rgba(0, 0, 0, 0.34);
+  }
+
+  .site-examples-desktop .site-example-card--right {
+    z-index: 1;
+    transform: translate(calc(-50% + clamp(226px, 32vw, 400px)), -50%) scale(0.94);
+    opacity: 0.9;
+  }
+}
+
+@media (min-width: 900px) {
+  .site-examples-section {
+    padding: 96px 0 112px;
+  }
+
+  .site-examples-section__head {
+    margin-bottom: 42px;
+  }
+
+  .site-examples-section__head p:not(.eyebrow) {
+    font-size: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-examples-desktop .site-example-card {
+    transition: none;
+  }
+}

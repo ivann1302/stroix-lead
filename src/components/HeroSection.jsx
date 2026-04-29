@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Button from './Button';
 import { sendLead } from '../lib/sendLead';
 
 const growthBars = ['32%', '48%', '68%', '88%'];
@@ -33,8 +34,8 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="hero">
-      <div className="hero__content">
+    <section className="hero" data-reveal="section">
+      <div className="hero__content" data-reveal="item">
         <p className="eyebrow hero__eyebrow">Сервис заявок для бригад по стяжке</p>
         <h1><span>50+ заявок</span> в месяц для вашей бригады по стяжке пола</h1>
         <p className="lead">Я даю Вам в аренду сайт, точечно настраиваю и подключаю рекламу, организую систему по приему заявок. Как итог: Вы занимаетесь работой, а не поиском клиентов.</p>
@@ -58,9 +59,9 @@ export default function HeroSection() {
               setIsSubmitted(false);
             }}
           />
-          <button className="button" type="submit" disabled={isSending}>
+          <Button type="submit" disabled={isSending}>
             {isSending ? 'Отправляю...' : 'Получить расчет заявок'}
-          </button>
+          </Button>
         </form>
         {submitError && (
           <p className="hero-form__message hero-form__message--error" role="alert">
@@ -74,7 +75,7 @@ export default function HeroSection() {
         )}
         <p className="trust">Первые 5 лидов - за мой счет. Работаю лично, без менеджеров и ботов.</p>
       </div>
-      <div className="hero__visual" aria-label="Что меняется после запуска системы заявок">
+      <div className="hero__visual" aria-label="Что меняется после запуска системы заявок" data-reveal="panel" data-reveal-delay="1">
         <div className="hero-panel__header">
           <span>До / После запуска</span>
           <b>простым языком</b>

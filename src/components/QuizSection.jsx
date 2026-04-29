@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import Button from './Button';
 import { quizHighlights, quizLeadSources } from '../data/home';
 import { sendLead } from '../lib/sendLead';
 
@@ -217,14 +218,14 @@ export default function QuizSection() {
   };
 
   return (
-    <section className="quiz-section" id="quiz">
-      <div className="quiz-section__head">
+    <section className="quiz-section" id="quiz" data-reveal="section">
+      <div className="quiz-section__head" data-reveal="item">
         <p className="eyebrow">Короткий квиз перед запуском</p>
         <h2>Ответьте на 5 вопросов, чтобы я понял, какой поток лидов нужен Вашей бригаде</h2>
       </div>
 
       <div className="quiz-layout">
-        <div className="quiz-aside">
+        <div className="quiz-aside" data-reveal="panel" data-reveal-delay="1">
           <span className="quiz-aside__label">Что это даст</span>
           <ul>
             {quizHighlights.map((item) => <li key={item}>{item}</li>)}
@@ -232,16 +233,16 @@ export default function QuizSection() {
           <p>Ответы сохраняются в браузере. Если обновить страницу, можно продолжить с того же места.</p>
         </div>
 
-        <form className="quiz-form" onSubmit={handleSubmit}>
+        <form className="quiz-form" onSubmit={handleSubmit} data-reveal="panel" data-reveal-delay="2">
           <div className="quiz-card">
             {isSubmitted ? (
               <div className="quiz-success" role="status" aria-live="polite">
                 <span className="quiz-success__mark">✓</span>
                 <h3>Заявка отправлена</h3>
                 <p>Спасибо, {answers.name || 'заявка принята'}. Скоро я свяжусь с Вами и уточню детали по запуску заявок.</p>
-                <button className="quiz-nav__back" type="button" onClick={resetQuiz}>
+                <Button variant="quizBack" onClick={resetQuiz}>
                   Заполнить заново
-                </button>
+                </Button>
               </div>
             ) : (
               <>
@@ -261,14 +262,14 @@ export default function QuizSection() {
                   {currentStep.type === 'choice' && (
                     <div className="quiz-options">
                       {currentStep.options.map((option) => (
-                        <button
-                          className={answers[currentStep.id] === option ? 'quiz-option quiz-option--active' : 'quiz-option'}
+                        <Button
+                          active={answers[currentStep.id] === option}
                           key={option}
-                          type="button"
+                          variant="quizOption"
                           onClick={() => updateAnswer(currentStep.id, option)}
                         >
                           {option}
-                        </button>
+                        </Button>
                       ))}
                     </div>
                   )}
@@ -326,15 +327,15 @@ export default function QuizSection() {
                 <input name="text" type="hidden" value={summaryText} readOnly />
 
                 <div className="quiz-nav">
-                  <button className="quiz-nav__back" type="button" onClick={goBack} disabled={stepIndex === 0}>
+                  <Button variant="quizBack" onClick={goBack} disabled={stepIndex === 0}>
                     Назад
-                  </button>
+                  </Button>
                   {isLastStep ? (
-                    <button className="button" type="submit" disabled={isSending}>
+                    <Button type="submit" disabled={isSending}>
                       {isSending ? 'Отправляю...' : 'Отправить заявку'}
-                    </button>
+                    </Button>
                   ) : (
-                    <button className="button" type="button" onClick={goNext}>Далее</button>
+                    <Button onClick={goNext}>Далее</Button>
                   )}
                 </div>
               </>

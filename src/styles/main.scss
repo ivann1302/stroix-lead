@@ -1,13 +1,17 @@
 @use 'variables';
 @use 'base';
+@use 'reveal';
 @use 'layout';
 @use 'components/buttons';
 @use 'components/forms';
 @use 'components/modal';
 @use 'sections/hero';
+@use 'sections/launch-offer';
 @use 'sections/work';
 @use 'sections/interaction';
 @use 'sections/system';
 @use 'sections/trust';
 @use 'sections/quiz';
+@use 'sections/site-examples';
+@use 'sections/client-result';
 @use 'sections/footer';

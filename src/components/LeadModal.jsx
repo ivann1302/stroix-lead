@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import Button from './Button';
 import { sendLead } from '../lib/sendLead';
 
 const SUBMISSIONS_KEY = 'stroix.lead.submissions.v1';
@@ -118,16 +119,16 @@ export default function LeadModal() {
 
   return (
     <div className="lead-modal" role="presentation">
-      <button className="lead-modal__overlay" type="button" aria-label="Закрыть форму" onClick={closeModal}></button>
+      <Button variant="modalOverlay" aria-label="Закрыть форму" onClick={closeModal}></Button>
       <div className="lead-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="lead-modal-title">
-        <button className="lead-modal__close" type="button" aria-label="Закрыть" onClick={closeModal}>×</button>
+        <Button variant="modalClose" aria-label="Закрыть" onClick={closeModal}>×</Button>
 
         {isSubmitted ? (
           <div className="lead-modal__success" role="status" aria-live="polite">
             <span>✓</span>
             <h2 id="lead-modal-title">Заявка отправлена</h2>
             <p>Спасибо. Скоро я свяжусь с Вами, уточню детали и подскажу следующий шаг.</p>
-            <button className="button" type="button" onClick={closeModal}>Понятно</button>
+            <Button onClick={closeModal}>Понятно</Button>
           </div>
         ) : (
           <>
@@ -179,9 +180,9 @@ export default function LeadModal() {
                 </p>
               )}
 
-              <button className="button" type="submit" disabled={isSending}>
+              <Button type="submit" disabled={isSending}>
                 {isSending ? 'Отправляю...' : 'Отправить заявку'}
-              </button>
+              </Button>
             </form>
           </>
         )}

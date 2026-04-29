@@ -50,8 +50,65 @@ const socialImage = Astro.site ? new URL(image, Astro.site).toString() : new URL
     <meta name="twitter:image" content={socialImage} />
     <meta name="twitter:image:alt" content={imageAlt} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <script is:inline>
+      document.documentElement.classList.add('has-reveal');
+    </script>
   </head>
   <body>
     <slot />
+    <script is:inline>
+      (() => {
+        const initReveal = () => {
+          const revealElements = document.querySelectorAll('[data-reveal]');
+
+          if (!revealElements.length) {
+            return;
+          }
+
+          if (!('IntersectionObserver' in window)) {
+            revealElements.forEach((element) => {
+              element.dataset.revealVisible = 'true';
+            });
+            return;
+          }
+
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) {
+                return;
+              }
+
+              entry.target.dataset.revealVisible = 'true';
+              observer.unobserve(entry.target);
+            });
+          }, {
+            rootMargin: '0px 0px -12% 0px',
+            threshold: 0.12,
+          });
+
+          revealElements.forEach((element) => observer.observe(element));
+        };
+
+        const islands = Array.from(document.querySelectorAll('astro-island[ssr]'));
+
+        if (!islands.length) {
+          initReveal();
+          return;
+        }
+
+        let hydratedCount = 0;
+        const handleHydrated = () => {
+          hydratedCount += 1;
+
+          if (hydratedCount === islands.length) {
+            initReveal();
+          }
+        };
+
+        islands.forEach((island) => {
+          island.addEventListener('astro:hydrate', handleHydrated, { once: true });
+        });
+      })();
+    </script>
   </body>
 </html>

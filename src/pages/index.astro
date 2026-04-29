@@ -2,11 +2,14 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.jsx';
 import HeroSection from '../components/HeroSection.jsx';
+import LaunchOfferSection from '../components/LaunchOfferSection.jsx';
 import WorkSection from '../components/WorkSection.jsx';
 import InteractionSection from '../components/InteractionSection.jsx';
 import SystemSection from '../components/SystemSection.jsx';
 import TrustSection from '../components/TrustSection.jsx';
 import QuizSection from '../components/QuizSection.jsx';
+import SiteExamplesSection from '../components/SiteExamplesSection.jsx';
+import ClientResultSection from '../components/ClientResultSection.jsx';
 import SiteFooter from '../components/SiteFooter.jsx';
 import LeadModal from '../components/LeadModal.jsx';
 import { getHomeSchema, pageMeta } from '../data/home';
@@ -26,11 +29,14 @@ const schema = getHomeSchema(Astro.site ? new URL(Astro.url.pathname, Astro.site
 
   <main>
     <HeroSection client:load />
+    <LaunchOfferSection />
     <WorkSection />
     <InteractionSection />
     <SystemSection />
     <TrustSection />
     <QuizSection client:load />
+    <SiteExamplesSection client:load />
+    <ClientResultSection />
   </main>
 
   <SiteFooter />
